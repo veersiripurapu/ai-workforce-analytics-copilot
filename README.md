@@ -7,7 +7,7 @@ An AI-powered analytics assistant that helps operations leaders answer questions
 - What risks are emerging?
 - What will happen next week?
 
-## 🚀 Features
+## Features
 - Natural language Q&A
 - Executive summary
 - Root cause analysis
@@ -15,13 +15,13 @@ An AI-powered analytics assistant that helps operations leaders answer questions
 - Forecasting & early warning
 - Scenario simulation
 
-## 🛠 Tech Stack
+## Tech Stack
 - Python
 - Streamlit
 - Pandas
 - OpenAI
 
-## 📊 Data Sources
+## Data Sources
 - Payroll data (Excel)
 - Volume data (CSV)
 
