@@ -62,7 +62,7 @@ This dashboard represents the foundational analytics layer, which is enhanced wi
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 - **Source Control**: GitHub  
 - **Hosting**: Streamlit Cloud  
