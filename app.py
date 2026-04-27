@@ -13,7 +13,7 @@ st.set_page_config(page_title="AI Workforce Analytics Assistant", layout="wide")
 import streamlit as st
 from openai import OpenAI
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key="OPENAI_API_KEY")
 
 # =========================
 # HELPERS
@@ -42,6 +42,27 @@ def simple_forecast(series: pd.Series) -> float:
     intercept = y_mean - slope * x_mean
     next_x = x.iloc[-1] + 1
     return float(intercept + slope * next_x)
+
+def is_workforce_analytics_question(question: str) -> bool:
+    q = (question or "").lower().strip()
+
+    if q == "":
+        return True
+
+    allowed_keywords = [
+        "payroll", "pay", "salary", "cost", "cost per case",
+        "volume", "cases", "delivered",
+        "region", "west", "east", "central",
+        "job", "driver", "forklift", "warehouse", "night loader",
+        "labor", "efficiency", "productivity",
+        "forecast", "trend", "risk", "warning",
+        "overtime", "rate", "performance",
+        "scenario", "what-if", "simulate", "simulation",
+        "highest", "lowest", "top", "bottom", "average", "total",
+        "why", "root cause"
+    ]
+
+    return any(keyword in q for keyword in allowed_keywords)
 
 def parse_question(question: str) -> dict:
     q = (question or "").lower().strip()
@@ -202,6 +223,13 @@ selected_job = st.sidebar.multiselect(
 )
 
 question = st.text_input("💬 Ask a question", key="question_input")
+
+if question and not is_workforce_analytics_question(question):
+    st.warning(
+        "⚠️ This assistant is designed only for workforce analytics questions. "
+        "Please ask about payroll, volume, region, job profile, productivity, trends, forecasting, or scenario analysis."
+    )
+    st.stop()
 
 compare_all_regions = False
 if question:
