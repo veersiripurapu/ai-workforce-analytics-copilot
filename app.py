@@ -13,7 +13,7 @@ st.set_page_config(page_title="AI Workforce Analytics Assistant", layout="wide")
 import streamlit as st
 from openai import OpenAI
 
-client = OpenAI(api_key="OPENAI_API_KEY")
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # =========================
 # HELPERS
