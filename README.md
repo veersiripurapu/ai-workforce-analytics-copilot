@@ -36,7 +36,7 @@ An AI-powered analytics assistant that helps operations leaders answer questions
 
 ---
 
-## ▶️ How to Run Locally
+## How to Run Locally
 
 ```bash
 pip install -r requirements.txt
@@ -51,7 +51,7 @@ streamlit run app.py
 
 ---
 
-## 📊 Power BI Dashboard
+## Power BI Dashboard
 
 This project also includes a Power BI dashboard used for workforce analytics and KPI visualization.
 
